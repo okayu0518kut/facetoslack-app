@@ -2,12 +2,13 @@ const express = require('express');
 const axios = require('axios');
 const bodyParser = require('body-parser');
 const path = require('path');
+require('dotenv').config()
 
 const app = express();
 const port = 3000;
 
 // Slack APIトークン
-const SLACK_TOKEN = 'xoxp-7157234464467-7157346749650-7142892442727-f4882cc2366a7d43b19a0b0b440d1649'; // ここにあなたのSlack APIトークンを設定します
+const SLACK_TOKEN = process.env.SLACK_TOKEN
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
